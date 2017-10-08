@@ -2,7 +2,5 @@
   "name": "SearMe",
   "app_id": "4ba00805",
   "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
+  "integrations": {}
 }
