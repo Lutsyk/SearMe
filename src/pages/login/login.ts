@@ -13,12 +13,21 @@ export class LoginPage {
 
   user = {} as User;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private afAuth: AngularFireAuth,
+    public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  login(){
-
+  async login(user: User){
+    try {
+    const result = this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
+    if(result) {
+    this.navCtrl.setRoot('HomePage');
+    }
   }
+  catch (e) {
+    console.error(e);
+  }
+}
 
   register(){
     this.navCtrl.push('RegisterPage');
