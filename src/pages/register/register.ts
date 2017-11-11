@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { User } from "../../models/user";
 import { AngularFireAuth } from "angularfire2/auth";
 
+import { LoginPage } from '../login/login';
+
 @IonicPage()
 @Component({
   selector: 'page-register',
@@ -26,4 +28,9 @@ export class RegisterPage {
       console.error(e);
     }
   }
+
+  login(){
+    this.navCtrl.push(LoginPage)
+  }
+
 }

@@ -18,7 +18,7 @@ export class HomePage {
     this.afAuth.authState.subscribe(data => {
       if (data && data.email && data.uid) {
         this.toast.create({
-          message: `Welcome to APP_NAME, ${data.email}`,
+          message: `Welcome to tastySound, ${data.email}`,
           duration: 3000
         }).present();
       }

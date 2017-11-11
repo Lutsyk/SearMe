@@ -8,7 +8,6 @@ import { AngularFireAuthModule }from 'angularfire2/auth';
 
 import { MyApp } from './app.component';
 import { FIREBASE_CONFIG } from "./app.firebase.config";
-import { SoundCloudProvider } from '../providers/sound-cloud/sound-cloud';
 
 @NgModule({
   declarations: [
