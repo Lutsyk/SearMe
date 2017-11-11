@@ -1,7 +1,7 @@
 Welcome to SerMe app
 
 it's SearMe Mockup
-![Screenshot](https://raw.githubusercontent.com/Lutsyk/master/SearMe/SearMe_Mockup.png)
+![Screenshot](https://github.com/Lutsyk/SearMe/blob/master/SearMe_Mockup.png)
 
 SerMe - it's a music search app
 
