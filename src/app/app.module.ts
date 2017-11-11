@@ -5,10 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule }from 'angularfire2/auth';
-<<<<<<< HEAD
 
-=======
->>>>>>> 838ad4978c80b2147bb12a8355e3594bd35e180d
 
 import { MyApp } from './app.component';
 import { FIREBASE_CONFIG } from "./app.firebase.config";
@@ -25,11 +22,7 @@ import { FIREBASE_CONFIG } from "./app.firebase.config";
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-<<<<<<< HEAD
     MyApp,
-=======
-    MyApp
->>>>>>> 838ad4978c80b2147bb12a8355e3594bd35e180d
   ],
   providers: [
     StatusBar,

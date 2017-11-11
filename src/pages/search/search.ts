@@ -1,18 +1,7 @@
 import { Component } from '@angular/core';
-<<<<<<< HEAD
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 
-=======
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the SearchPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
->>>>>>> 838ad4978c80b2147bb12a8355e3594bd35e180d
 
 @IonicPage()
 @Component({
@@ -20,7 +9,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'search.html',
 })
 export class SearchPage {
-<<<<<<< HEAD
   items;
 
   constructor(private afAuth: AngularFireAuth, private toast: ToastController,
@@ -101,14 +89,4 @@ export class SearchPage {
       })
     }
   }
-=======
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SearchPage');
-  }
-
->>>>>>> 838ad4978c80b2147bb12a8355e3594bd35e180d
 }
