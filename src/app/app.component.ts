@@ -3,6 +3,10 @@ import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 838ad4978c80b2147bb12a8355e3594bd35e180d
 @Component({
   templateUrl: 'app.html'
 })
