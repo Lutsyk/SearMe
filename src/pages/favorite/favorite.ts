@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/Observable';
   selector: 'page-favorite',
   templateUrl: 'favorite.html',
 })
+
 export class FavoritePage {
   channelId = 'UC-9-kyTW8ZkZNDHQJ6FgpwQ';
     playlists: Observable<any[]>;

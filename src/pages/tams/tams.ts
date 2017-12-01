@@ -14,7 +14,7 @@ export class TamsPage {
   albumsRoot = 'AlbumsPage'
   favoriteRoot = 'FavoritePage'
   settingsRoot = 'SettingsPage'
-  playlRoot = 'PlayLPage'
+  listRoot = 'ListPage'
 
 
   constructor(public navCtrl: NavController) {}
