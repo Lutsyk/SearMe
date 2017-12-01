@@ -9,6 +9,11 @@ import { AngularFireAuthModule }from 'angularfire2/auth';
 
 import { MyApp } from './app.component';
 import { FIREBASE_CONFIG } from "./app.firebase.config";
+import { YtProvider } from '../providers/yt/yt';
+import { HttpModule } from '@angular/http';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player';
+
+
 
 @NgModule({
   declarations: [
@@ -18,7 +23,8 @@ import { FIREBASE_CONFIG } from "./app.firebase.config";
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -27,7 +33,10 @@ import { FIREBASE_CONFIG } from "./app.firebase.config";
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    YtProvider,
+    YoutubeVideoPlayer,
+    YtProvider
   ]
 })
 export class AppModule {}

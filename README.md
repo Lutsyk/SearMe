@@ -8,3 +8,5 @@ SerMe - it's a music search app
  Our alpha app is here https://github.com/Lutsyk/AlphaSearMe
 
 Unit test documentation here https://github.com/Lutsyk/SearMe/tree/master/Test
+
+                    🎉🎁Happy B-Day🎁🎉
