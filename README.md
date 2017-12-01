@@ -9,4 +9,4 @@ SerMe - it's a music search app
 
 Unit test documentation here https://github.com/Lutsyk/SearMe/tree/master/Test
 
-<h1>** 🎉🎁Happy B-Day🎁🎉 **</h1>
+<center><h1>** 🎉🎁Happy B-Day🎁🎉 **</h1></center>
