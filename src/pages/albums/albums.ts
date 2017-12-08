@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController, ActionSheetController } from 'ionic-angular';
+import { MusicProvider } from "../../providers/music/music";
+import { SocialSharing } from "@ionic-native/social-sharing";
 
-/**
- * Generated class for the AlbumsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { MusicPlayerPage } from "../music-player/music-player";
+
 
 @IonicPage()
 @Component({
@@ -14,12 +12,79 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'albums.html',
 })
 export class AlbumsPage {
+  public allMusic = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    private socialSharing: SocialSharing,
+    private actionSheetController: ActionSheetController,
+    private loadingController: LoadingController,
+    public navCtrl: NavController,
+    private musicProvider: MusicProvider) {
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AlbumsPage');
+  ionViewDidLoad(){
+    let allMusicLoadingController = this.loadingController.create({
+      content: "Getting Your Music From Server"
+    });
+    allMusicLoadingController.present();
+    this.musicProvider.getMusic()
+      .subscribe((musicList)=> {
+        allMusicLoadingController.dismiss();
+        this.allMusic = musicList
+      });
+  }
+
+  addOneSong(refresher){
+    this.musicProvider.getOneSong()
+      .subscribe((oneSong)=> {
+        this.allMusic.unshift(oneSong[0]);
+        refresher.complete();
+      });
+  }
+
+  shareSong(music){
+    let shareSongActionSheet = this.actionSheetController.create({
+      title: "Share Song With Friends",
+      buttons: [
+        {
+          text: "Share On Facebook",
+          icon: "logo-facebook",
+          handler: ()=>{
+            this.socialSharing.shareViaFacebook(music.name, music.image, music.music_url);
+          }
+        },
+        {
+          text: "Share On Twitter",
+          icon: "logo-twitter",
+          handler: ()=>{
+            this.socialSharing.shareViaTwitter(music.name, music.image, music.music_url);
+          }
+        },
+        {
+          text: "Share",
+          icon: "share",
+          handler: ()=>{
+            this.socialSharing.share(music.name, "", music.image, music.image_url);
+          }
+        },
+        {
+          text: "Cancel",
+          role: "destructive"
+        }
+      ]
+    });
+    shareSongActionSheet.present();
+  }
+
+  goToMusicPlayer(music){
+    this.navCtrl.push(MusicPlayerPage, {
+      music: music
+    });
+  }
+
+  addToFavorites(music){
+    this.musicProvider.addToFavorites(music);
   }
 
 }

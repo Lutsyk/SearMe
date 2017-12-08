@@ -1,33 +1,35 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Альбомы</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>All Music</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content class="card-background-page">
+<ion-content padding>
+  <ion-refresher (ionRefresh)="addOneSong($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
 
-  <ion-card>
-    <img src="assets/img/card-saopaolo.png"/>
-    <div class="card-title">São Paulo</div>
-    <div class="card-subtitle">41 Listings</div>
-  </ion-card>
+  <ion-card *ngFor="let music of allMusic">
+    <ion-card-header>
+      <button (click)="addToFavorites(music)" ion-button block>Add to Favorites</button>
+    </ion-card-header>
 
-  <ion-card>
-    <img src="assets/img/card-amsterdam.png"/>
-    <div class="card-title">Amsterdam</div>
-    <div class="card-subtitle">64 Listings</div>
-  </ion-card>
+    <img [src]="music.image">
+    <ion-card-content>
+      <ion-card-title>{{music.name}}</ion-card-title>
+      <ion-item>
+        <button ion-button item-left (click)="shareSong(music)">
+          Share
+        </button>
 
-  <ion-card>
-    <img src="assets/img/card-sf.png"/>
-    <div class="card-title">San Francisco</div>
-    <div class="card-subtitle">72 Listings</div>
-  </ion-card>
-
-  <ion-card>
-    <img src="assets/img/card-madison.png"/>
-    <div class="card-title">Madison</div>
-    <div class="card-subtitle">28 Listings</div>
+        <button ion-button item-right (click)="goToMusicPlayer(music)">
+          Listen
+        </button>
+      </ion-item>
+    </ion-card-content>
   </ion-card>
 
 </ion-content>
